@@ -15,10 +15,10 @@ def parsePoint(line):
     return LabeledPoint(values[-1], values[:-1])              # y = quality, X = row[:-1]
 
 if __name__ == '__main__':
-    conf = SparkConf().setMaster("local[*]").setAppName("Wine Regression")
+    conf = SparkConf().setAppName("Wine Regression")
     sc   = SparkContext(conf=conf)
 
-    wines = sc.textFile("winequality-red.csv")
+    wines = sc.textFile("fixtures/winequality/wines.csv")
     parsedData = wines.map(parsePoint)
 
     # Build the model
@@ -26,5 +26,5 @@ if __name__ == '__main__':
 
     # Evaluate the model on training data
     valuesAndPreds = parsedData.map(lambda p: (p.label, model.predict(p.features)))
-    MSE = valuesAndPreds.map(lambda (v, p): (v - p)**2).reduce(lambda x, y: x + y).count() / valuesAndPreds.count()
+    MSE = valuesAndPreds.map(lambda (v, p): (v - p)**2).take(5).reduce(lambda x, y: x + y) / valuesAndPreds.count()
     print("Mean Squared Error = " + str(MSE))
