@@ -1,5 +1,3 @@
-1001,Bennett Goyette,streich.jarod@hotmail.com,Male,2013-05-15 08:59:52,Murphyborough,Massachusetts,84838-2866
-
 import csv
 
 from datetime import datetime
