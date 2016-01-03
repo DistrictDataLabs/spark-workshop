@@ -1,4 +1,4 @@
-## Spark Application for performing SGD regression on wines.
+## Spark Application for performing Kmeans clustering.
 
 import csv
 
@@ -16,7 +16,7 @@ def error(point):
 
 
 if __name__ == '__main__':
-    conf = SparkConf().setAppName("Wine Regression")
+    conf = SparkConf().setAppName("Kmeans")
     sc   = SparkContext(conf=conf)
 
 
