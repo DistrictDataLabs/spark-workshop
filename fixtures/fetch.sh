@@ -10,7 +10,7 @@ wget https://dl.dropboxusercontent.com/u/9448094/Datasets/District%20Data%20Labs
 
 wget https://dl.dropboxusercontent.com/u/9448094/Datasets/District%20Data%20Labs/Spark%20Workshop/ontime.zip
 
-wget https://dl.dropboxusercontent.com/u/9448094/Datasets/District%20Data%20Labs/Spark%20Workshop/shopping.tgz
+#wget https://dl.dropboxusercontent.com/u/9448094/Datasets/District%20Data%20Labs/Spark%20Workshop/shopping.tgz
 
 wget https://dl.dropboxusercontent.com/u/9448094/Datasets/District%20Data%20Labs/Spark%20Workshop/tolstoy.txt.gz
 
