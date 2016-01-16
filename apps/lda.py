@@ -15,6 +15,7 @@ if __name__ == '__main__':
 
     # Load and parse the data
     data = sc.textFile("../fixtures/sample_lda_data.txt")
+    # data file found at https://raw.githubusercontent.com/apache/spark/master/data/mllib/sample_lda_data.txt
     parsedData = data.map(lambda line: Vectors.dense([float(x) for x in line.strip().split(' ')]))
 
     # Index documents with unique IDs
