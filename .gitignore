@@ -57,7 +57,8 @@ target/
 results/
 
 # Data
-fixtures/
+fixtures/*
+!fixtures/fetch.sh
 
 # iPython
 .ipynb_checkpoints
