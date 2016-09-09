@@ -17,7 +17,7 @@ def main(sc, sqlc):
     customers = rows.map(lambda c: Row(id=int(c[0]), name=c[1], state=c[6]))
 
     # Infer the schema and register the SchemaRDD
-    schema = sqlc.inferSchema(customers)
+    schema = sqlc.createDataFrame(customers)
     schema.registerTempTable("customers")
 
     maryland = sqlc.sql("SELECT name FROM customers WHERE state = 'Maryland'")
