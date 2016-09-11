@@ -76,13 +76,13 @@ def plot(delays):
 def main(sc):
 
     # Load the airlines lookup dictionary
-    airlines = dict(sc.textFile("data/ontime/airlines.csv").map(split).collect())
+    airlines = dict(sc.textFile("fixtures/ontime/airlines.csv").map(split).collect())
 
     # Broadcast the lookup dictionary to the cluster
     airline_lookup = sc.broadcast(airlines)
 
     # Read the CSV Data into an RDD
-    flights = sc.textFile("data/ontime/flights.csv").map(split).map(parse)
+    flights = sc.textFile("fixtures/ontime/flights.csv").map(split).map(parse)
 
     # Map the total delay to the airline (joined using the broadcast value)
     delays  = flights.map(lambda f: (airline_lookup.value[f.airline],
